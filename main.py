@@ -4,12 +4,24 @@ GOOD = 1
 BAD = 50
 MISS = 80
 
+def nonnegative_input(prompt: str) -> int:
+    while True:
+        s = input(prompt).strip()
+        try:
+            s = int(s)
+            if s < 0:
+                print('請輸入非負整數！')
+                continue
+            return s
+        except ValueError:
+            print('請輸入非負整數！')
+
 def count_score(name: str) -> tuple[int]:
-    perfect = int(input(f'請輸入 {name} 的 PERFECT 數：'))
-    great = int(input(f'請輸入 {name} 的 GREAT數：'))
-    good = int(input(f'請輸入 {name} 的 GOOD 數：'))
-    bad = int(input(f'請輸入 {name} 的 BAD 數：'))
-    miss = int(input(f'請輸入 {name} 的 MISS 數：'))
+    perfect = nonnegative_input(f'請輸入 {name} 的 PERFECT 數：')
+    great = nonnegative_input(f'請輸入 {name} 的 GREAT數：')
+    good = nonnegative_input(f'請輸入 {name} 的 GOOD 數：')
+    bad = nonnegative_input(f'請輸入 {name} 的 BAD 數：')
+    miss = nonnegative_input(f'請輸入 {name} 的 MISS 數：')
 
     score = perfect*PERFECT + great*GREAT + good*GOOD
     hp = max(0, 1000 - bad*BAD - miss*MISS)
