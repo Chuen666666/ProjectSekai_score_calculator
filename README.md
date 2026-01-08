@@ -7,7 +7,7 @@
 
 - 隊伍：不可使用強化判定隊伍，且血量以無隊伍計算（不補血）
 - 計分方式
-  - PERFECT 算 3 分、GREAT 算 2 分、GOOD 算 1 分、BAD/MISS 算 0 分
+  - PERFECT 算 3 分、GREAT 算 2 分、GOOD 算 1 分、BAD／MISS 算 0 分
   - 若雙方同分，則依序比較
     1. PERFECT 數
     2. 最大 COMBO 數
