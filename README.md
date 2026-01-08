@@ -15,4 +15,4 @@
 
 ## 參考資料
 - [世界計畫官網計分規則（jp）](https://pjsekai.sega.jp/news/article/index.html?hash=a4be0d5d5effe4a9737f9767f973628c0d98e5f3)
-- [世界計畫官網計分規則（zh-cn）](https://www.bilibili.com/opus/641606270870093929)
+- [世界計畫 Bilibili 官方帳號計分規則（zh-cn）](https://www.bilibili.com/opus/641606270870093929)
