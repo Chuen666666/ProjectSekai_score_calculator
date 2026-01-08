@@ -12,12 +12,12 @@ def count_score(name: str) -> tuple[int]:
     miss = int(input(f'請輸入 {name} 的 MISS 數：'))
 
     score = perfect*PERFECT + great*GREAT + good*GOOD
-    hp = max(0, 1000 - (bad*BAD - miss*MISS))
+    hp = max(0, 1000 - bad*BAD - miss*MISS)
     combo = int(input(f'請輸入 {name} 的最大 COMBO 數：'))
 
     return (score, perfect, hp, combo)
 
-def singal() -> None:
+def single() -> None:
     perfect = int(input('請輸入您的 PERFECT 數：'))
     great = int(input('請輸入您的 GREAT 數：'))
     good = int(input('請輸入您的 GOOD 數：'))
@@ -34,7 +34,7 @@ def double() -> None:
     if score_a != score_b:
         print(f'{name_a if score_a > score_b else name_b} 獲勝！')
     else:
-        print(f'由於雙方分數一樣，進入同分比較第一階段\n{name_a}的 PERFECT 數為：{perfect_b}\n{name_b}的 PERFECT 數為：{perfect_b}')
+        print(f'由於雙方分數一樣，進入同分比較第一階段\n{name_a}的 PERFECT 數為：{perfect_a}\n{name_b}的 PERFECT 數為：{perfect_b}')
         if perfect_a != perfect_b:
             print(f'{name_a if perfect_a > perfect_b else name_b} 獲勝！')
         else:
@@ -52,7 +52,7 @@ def main() -> None:
     while True:
         match input('\n請選擇要執行的項目 (A)單人算分 (B)雙人 PK\n或輸入任意其他字來結束程式\n：').upper():
             case 'A':
-                singal()
+                single()
             case 'B':
                 double()
             case _:
