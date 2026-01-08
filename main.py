@@ -1,8 +1,11 @@
-PERFECT = 3
-GREAT = 2
-GOOD = 1
-BAD = 50
-MISS = 80
+# 分數
+PERFECT_PTS = 3
+GREAT_PTS = 2
+GOOD_PTS = 1
+
+# 扣血
+BAD_DMG = 50
+MISS_DMG = 80
 
 def nonnegative_input(prompt: str) -> int:
     while True:
@@ -17,40 +20,40 @@ def nonnegative_input(prompt: str) -> int:
             print('請輸入非負整數！')
 
 def count_score(name: str) -> tuple[int]:
-    perfect = nonnegative_input(f'請輸入 {name} 的 PERFECT 數：')
-    great = nonnegative_input(f'請輸入 {name} 的 GREAT數：')
-    good = nonnegative_input(f'請輸入 {name} 的 GOOD 數：')
-    bad = nonnegative_input(f'請輸入 {name} 的 BAD 數：')
-    miss = nonnegative_input(f'請輸入 {name} 的 MISS 數：')
+    PERFECT_PTS = nonnegative_input(f'請輸入 {name} 的 PERFECT_PTS 數：')
+    GREAT_PTS = nonnegative_input(f'請輸入 {name} 的 GREAT_PTS數：')
+    GOOD_PTS = nonnegative_input(f'請輸入 {name} 的 GOOD_PTS 數：')
+    BAD_DMG = nonnegative_input(f'請輸入 {name} 的 BAD_DMG 數：')
+    MISS_DMG = nonnegative_input(f'請輸入 {name} 的 MISS_DMG 數：')
 
-    score = perfect*PERFECT + great*GREAT + good*GOOD
-    hp = max(0, 1000 - bad*BAD - miss*MISS)
+    score = PERFECT_PTS*PERFECT_PTS + GREAT_PTS*GREAT_PTS + GOOD_PTS*GOOD_PTS
+    hp = max(0, 1000 - BAD_DMG*BAD_DMG - MISS_DMG*MISS_DMG)
     combo = int(input(f'請輸入 {name} 的最大 COMBO 數：'))
 
-    return (score, perfect, hp, combo)
+    return (score, PERFECT_PTS, hp, combo)
 
 def single() -> None:
-    perfect = int(input('請輸入您的 PERFECT 數：'))
-    great = int(input('請輸入您的 GREAT 數：'))
-    good = int(input('請輸入您的 GOOD 數：'))
-    print (f'好的，系統已計算完成\n您的總分為 {perfect*PERFECT + great*GREAT + good*GOOD} 分')
+    PERFECT_PTS = int(input('請輸入您的 PERFECT_PTS 數：'))
+    GREAT_PTS = int(input('請輸入您的 GREAT_PTS 數：'))
+    GOOD_PTS = int(input('請輸入您的 GOOD_PTS 數：'))
+    print (f'好的，系統已計算完成\n您的總分為 {PERFECT_PTS*PERFECT_PTS + GREAT_PTS*GREAT_PTS + GOOD_PTS*GOOD_PTS} 分')
 
 def double() -> None:
     name_a = input('請輸入一號玩家的暱稱:')
     name_b = input('請輸入二號玩家的暱稱:')
 
-    score_a, perfect_a, hp_a, combo_a = count_score(name_a)
-    score_b, perfect_b, hp_b, combo_b = count_score(name_b)
+    score_a, PERFECT_PTS_a, hp_a, combo_a = count_score(name_a)
+    score_b, PERFECT_PTS_b, hp_b, combo_b = count_score(name_b)
 
     print(f'好的，系統已計算完成\n{name_a} 的分數為：{score_a} 分\n{name_b} 的分數為：{score_b} 分')
     if score_a != score_b:
         print(f'{name_a if score_a > score_b else name_b} 獲勝！')
     else:
-        print(f'由於雙方分數一樣，進入同分比較第一階段\n{name_a}的 PERFECT 數為：{perfect_a}\n{name_b}的 PERFECT 數為：{perfect_b}')
-        if perfect_a != perfect_b:
-            print(f'{name_a if perfect_a > perfect_b else name_b} 獲勝！')
+        print(f'由於雙方分數一樣，進入同分比較第一階段\n{name_a}的 PERFECT_PTS 數為：{PERFECT_PTS_a}\n{name_b}的 PERFECT_PTS 數為：{PERFECT_PTS_b}')
+        if PERFECT_PTS_a != PERFECT_PTS_b:
+            print(f'{name_a if PERFECT_PTS_a > PERFECT_PTS_b else name_b} 獲勝！')
         else:
-            print(f'由於雙方 PERFECT 數也一樣，進入同分比較第二階段\n{name_a} 的最大 COMBO 數為 {combo_a}\n{name_b} 的最大 COMBO 數為 {combo_b}')
+            print(f'由於雙方 PERFECT_PTS 數也一樣，進入同分比較第二階段\n{name_a} 的最大 COMBO 數為 {combo_a}\n{name_b} 的最大 COMBO 數為 {combo_b}')
             if combo_a != combo_b:
                 print(f'{name_a if combo_a > combo_b else name_b} 獲勝！')
             else:
