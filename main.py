@@ -51,9 +51,7 @@ def double() -> None:
     score_a, perfect_pts_a, hp_a, combo_a = count_score(name_a)
     score_b, perfect_pts_b, hp_b, combo_b = count_score(name_b)
 
-    print(
-        f'好的，系統已計算完成\n{name_a} 的分數為：{score_a} 分\n{name_b} 的分數為：{score_b} 分'
-    )
+    print(f'好的，系統已計算完成\n{name_a} 的分數為：{score_a} 分\n{name_b} 的分數為：{score_b} 分')
     if score_a != score_b:
         print(f'{name_a if score_a > score_b else name_b} 獲勝！')
     else:
@@ -80,9 +78,7 @@ def double() -> None:
 
 def main() -> None:
     while True:
-        match input(
-            '\n請選擇要執行的項目 (A)單人算分 (B)雙人 PK\n或輸入任意其他字來結束程式\n：'
-        ).upper():
+        match input('\n請選擇要執行的項目 (A)單人算分 (B)雙人 PK\n或輸入任意其他字來結束程式\n：').upper():
             case 'A':
                 single()
             case 'B':
